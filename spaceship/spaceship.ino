@@ -1,3 +1,5 @@
+int switchState;
+
 void setup() {
   // put your setup code here, to run once:
   pinMode(3, OUTPUT);
@@ -9,12 +11,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int switchState = digitalRead(2);
+  switchState = digitalRead(2);
 
   if (switchState == LOW) {
     // The button is not pressed
-    digitalWrite(3, HIGH);  // Green LED
-    digitalWrite(4, LOW);  // Red LED
+    digitalWrite(3, LOW);  // Green LED
+    digitalWrite(4, HIGH);  // Red LED
     digitalWrite(5, LOW);  // Red LED
   }
   else {
@@ -22,11 +24,12 @@ void loop() {
     digitalWrite(4, LOW);
     digitalWrite(5, HIGH);
 
-    delay(250);   // Wait for a quarter second
+    delay(500);   // Wait for a quarter second
     // Toggle the LEDs
-    digitalWrite(4, HIGH);
+    digitalWrite(3, HIGH);
     digitalWrite(5, LOW);
-    delay(250);  // Wait for a quarter second
+    
+    delay(500);  // Wait for a quarter second
   }
 
 }  // Go back to the beginning of the loop
